@@ -21,6 +21,11 @@ const UserSchema = new Schema(
       message: props => `${props.value} is not a valid email address.`
     }
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: createdAtVal => dateFormat(createdAtVal)
+  },
   thoughts: [
     {
       type: Schema.Types.ObjectId,
@@ -37,6 +42,7 @@ const UserSchema = new Schema(
 {
   toJSON: {
       virtuals: true,
+      getters: true
   },
     id: false
 });
