@@ -60,26 +60,19 @@ const UserController = {
   },
 
   // delete user by id
-  deleteUser({ params, body }, res) {
+  deleteUser({ params }, res) {
     User.findOneAndDelete({ _id: params.id })
       .then(dbUserData => {
         if (!dbUserData) {
           res.status(404).json({ message: 'No user found with this id' });
           return;
         }
-        res.status(200).json({ message: 'User and thoughts posted by user have been deleted' });
-
-        Thought.deleteMany({ thoughts: body.thoughts })  
-        .then(dbThoughtData => {
-          if (!dbThoughtData) {
-            return;
-          }
-        })
-        .catch(err => res.status(400).json(err)); 
+        res.status(200).json({ message: 'User deleted' });
       })
-      .catch(err => res.status(400).json(err));     
+      .catch(err => res.status(400).json(err)); 
   },
-  // add friend to user
+
+  //add friend
   addFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.id },
@@ -96,7 +89,7 @@ const UserController = {
     })
     .catch(err => res.json(err));
   },
-  // delete friend from user
+  //delete friend
   removeFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.id },
@@ -112,6 +105,7 @@ const UserController = {
     })
     .catch(err => res.json(err));
   },
+
 };
 
 module.exports = UserController;
