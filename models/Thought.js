@@ -9,7 +9,7 @@ const ReactionSchema = new Schema(
       },
       reactionText: {
         type: String,
-        required: [true, 'Please type your reaction'],
+        required: [true, 'Reaction text required'],
         trim: true,
         maxLength: 280
       },
