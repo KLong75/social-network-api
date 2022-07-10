@@ -6,7 +6,7 @@
 This applications contains the API Routes for a social media networking application running a MongoODB with Mongoose. Users can create an account, post "thoughts", post "reactions" to the posts of other users, and connect with other users as "friends".
 
 ## Walkthrough Video
-https://watch.screencastify.com/v/jyK4Ts9V7Z8uT5y6V7vl
+https://watch.screencastify.com/v/FCZ8VG8ywv0NKpyZNq5S
 
 ## Table of Contents
 - [Installation](#installation)
